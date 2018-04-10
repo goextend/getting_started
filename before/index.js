@@ -3,6 +3,7 @@ const exphbs  = require('express-handlebars');
 const bodyParser = require('body-parser');
 
 const app = express();
+
 helpers = {
     ifEquals:function(arg1, arg2, options) {
         return (arg1 == arg2) ? options.fn(this) : options.inverse(this);
