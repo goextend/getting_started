@@ -1,0 +1,48 @@
+<h1>Add New Lead</h1>
+
+<div class="form-container">
+	<div class="form-content">
+		<form class="lead-form">
+			<div>
+				<label for="lead">Name</label>
+				<input autofocus type="text" placeholder="Enter lead name..." id="lead" name="name">
+			</div>
+			<div>
+				<label for="opportunity">Value</label>
+				<input type="Number" placeholder="Enter potential value in USD..." id="opportunity" name="value">
+			</div>
+			<div>
+				<label for="email">Email</label>
+				<input type="email" placeholder="Enter email..." id="email" name="email">
+			</div>
+			<button id="create" class="button">Create lead</button>
+		</form>
+
+		<div class="form-result" id="leadResult">
+			<h3>RESULT</h3>
+			<pre id="leadRecord"></pre>
+		</div>
+	</div>
+</div>
+
+<script>
+$(function () {  
+	$('#create').click(function (e) {
+		e.stopPropagation();
+		e.preventDefault();
+
+		$('#create').attr('disabled', true);
+		$('#create').text('Creating');
+		
+		var data = $('form').serialize();
+
+		$('#newLead').hide();
+		$.post('api/leads', data, (response) => {
+			$('#leadRecord').html(JSON.stringify(response, null, 2));
+			$('#leadResult').show();
+			$('#create').removeAttr('disabled');
+			$('#create').text('Create new lead');
+		});
+	});
+});
+</script>

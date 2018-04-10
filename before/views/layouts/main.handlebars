@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <link rel="icon" type="image/png" href="https://auth0.com/extend/favicon-16x16.png" sizes="16x16">
+  <meta name="description" content="Zero CRM">
+  <title>Zero CRM</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Roboto+Mono" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="https://cdn.auth0.com/fonts/340567/BCE5F33B94B3B1134.css"/>
+  <link rel="stylesheet" type="text/css" href="stylesheets/style.css"/>
+</head>
+<body>
+
+  <div class="crm">
+    <div class="sidebar">
+      <div class="logo">
+        <span>Zero CRM</span>
+      </div>
+      <ol>
+        <li {{#ifEquals nav 'home'}}class="active"{{/ifEquals}}><a href="/"><i class="icon-budicon-289"></i>Leads</a></li>
+        <li><i class="icon-budicon-290"></i>Accounts</li>
+        <li><i class="icon-budicon-209"></i>Opportunities</li>
+        <li><i class="icon-budicon-706"></i>Reports</li>
+        <li {{#ifEquals nav 'settings'}}class="active"{{/ifEquals}}><a href="settings"><i class="icon-budicon-329"></i>Settings</a></li>
+      </ol>
+      <div class="banner">
+        <h5>Ready to implement Extend?</h5>
+        <p>Get started by embedding our editor right in your application.</p>
+        <a href="https://auth0.com/extend/try" target="_blank">TRY AUTH0 EXTEND</a>
+      </div>
+    </div>
+    <div class="container">
+      <div class="header">
+        <ol>
+          <li>
+            <a href="https://auth0.com/extend/docs/getting-started#sample-application" target="_blank"><i class="icon-budicon-754"></i>Documentation</a>
+          </li>
+          <li>
+            <a href="https://github.com/auth0/extend/fork" target="_blank"><i class="icon-1392070209-icon-social-github"></i>Fork on GitHub</a>
+          </li>
+        </ol>
+      </div>
+      <div class="content">
+		  {{{ body }}}
+      </div>   
+        
+      </div>
+    </div>
+  </div>
+</body>
+</html>

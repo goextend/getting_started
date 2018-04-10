@@ -1,0 +1,21 @@
+<h1>Settings</h1>
+<h2>Add New Lead</h2>
+
+<p>
+	Specify the URL to be used when a new lead is created. We will call this
+	URL and pass information about the lead to the endpoint. Your code should
+	return a JSON-encoded object containing the lead information.
+</p>
+
+<div class="form-container">
+
+	<div class="form-content">
+		<form class="lead-form" method="post" action="/settings">
+			<div>
+				<label for="webhookUrl">Webhook URL</label>
+				<input autofocus type="url" placeholder="Enter Webhook URL" id="webhookUrl" name="webhookUrl" value="{{webhookUrl}}">
+			</div>
+			<button class="button">Save</button>
+		</form>
+	</div>
+</div>

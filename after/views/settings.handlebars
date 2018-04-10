@@ -1,0 +1,13 @@
+<h1>Settings</h1>
+<h2>Add New Lead</h2>
+
+<div id="extend-editor" style="height: 600px; width: 100%"></div>
+<script>
+ExtendEditor.create(document.getElementById('extend-editor'), {
+	hostUrl: 'https://webtask.it.auth0.com',
+	webtaskContainer: '{{container}}',
+	token: '{{token}}',
+	webtaskName: 'saveLead',
+	createIfNotExists: true
+});
+</script>
