@@ -1,8 +1,8 @@
 require('dotenv').config();
 
-const auth0Container = process.env.AUTH0_CONTAINER;
-const auth0ExtendURL = `https://${auth0Container}.run.webtask.io/`;
-const auth0Token = process.env.AUTH0_TOKEN;
+const extendContainer = process.env.EXTEND_CONTAINER;
+const extendURL = `https://${extendContainer}.run.webtask.io/`;
+const extendToken = process.env.EXTEND_TOKEN;
 
 const request = require('request');
 
@@ -16,8 +16,8 @@ module.exports = function(app) {
 	app.get('/settings', (req, res) => {
 		res.render('settings', { 
 			nav:'settings',
-			container:auth0Container,
-			token:auth0Token
+			container:extendContainer,
+			token:extendToken
 		});
 	});
 	
@@ -29,8 +29,8 @@ module.exports = function(app) {
 
 		let options = {
 			method:'POST',
-			url:auth0ExtendURL +'saveLead',
-			headers:{'Authorization':`Bearer ${auth0Token}`},
+			url:extendURL +'saveLead',
+			headers:{'Authorization':`Bearer ${extendToken}`},
 			json:data
 		};
 
