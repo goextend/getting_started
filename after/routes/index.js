@@ -1,7 +1,7 @@
 require('dotenv').config();
 
 const extendContainer = process.env.EXTEND_CONTAINER;
-const extendURL = `https://${extendContainer}.run.webtask.io/`;
+const extendURL = `https://${extendContainer}.sandbox.auth0-extend.com/`;
 const extendToken = process.env.EXTEND_TOKEN;
 
 const request = require('request');
