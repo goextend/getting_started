@@ -1,8 +1,18 @@
 require('dotenv').config();
 
 const extendContainer = process.env.EXTEND_CONTAINER;
-const extendURL = `https://${extendContainer}.sandbox.auth0-extend.com/`;
-const extendToken = process.env.EXTEND_TOKEN;
+let extendHost = 'https://sandbox.auth0-extend.com';
+let extendURL = `https://${extendContainer}.sandbox.auth0-extend.com/`;
+let extendToken = process.env.EXTEND_TOKEN;
+
+/*
+If you define process.env.EXTEND_HOST, you are a starter account, 
+otherwise you are freemium, which is still cool!
+*/
+if(process.env.EXTEND_HOST) {
+	extendHost = process.env.EXTEND_HOST;
+	extendURL = extendHost.replace('https://', `https://${extendContainer}.`)+'/';
+}
 
 const request = require('request');
 
@@ -17,6 +27,7 @@ module.exports = function(app) {
 		res.render('settings', { 
 			nav:'settings',
 			container:extendContainer,
+			host:extendHost,
 			token:extendToken
 		});
 	});
