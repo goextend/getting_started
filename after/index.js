@@ -35,7 +35,8 @@ app.use((req, res, next) => {
 if (app.get('env') === 'development') {
     app.use((err, req, res, next) => {
         res.status(err.status || 500);
-		console.error(err);
+		//don't log a 404 (stops ugly error when favicon is requested
+        if(err.status !== 404) console.error(err);
         res.render('error', {
             message: err.message,
             error: err
